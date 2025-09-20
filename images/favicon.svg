@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    text {
+      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","EmojiOne Color","Twemoji Mozilla",sans-serif;
+      font-size: 52px;
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
+  </style>
+  <text x="32" y="32">🐝</text>
+</svg>
