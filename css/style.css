@@ -45,6 +45,9 @@ nav {
   grid-area: nav;
   padding: 20px 20px;
   height: var(--nav-height);
+  display: flex; /* ADD */
+  align-items: center; /* ADD */
+  justify-content: flex-end; /* ADD */
 }
 
 main {
@@ -130,8 +133,8 @@ section h5 {
 .dark-mode-button {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 4px;
+  margin-left: auto;
 }
 
 .dark-mode-button span {
@@ -877,7 +880,7 @@ footer {
     padding: 0;
   }
   .dark-mode-button {
-    padding: 20px 20px;
+    padding: 0;
   }
 
   section h2 {
@@ -925,7 +928,7 @@ footer {
     padding: 0;
   }
   .dark-mode-button {
-    padding: 20px 20px;
+    padding: 0;
   }
 
   section h2 {
@@ -1230,7 +1233,7 @@ footer {
     --nav-height: 100px;
   }
   .dark-mode-button {
-    padding: 40px 40px;
+    padding: 0;
   }
   #intro-wrapper {
     padding: 120px 30px 0px 60px;
@@ -1278,7 +1281,7 @@ footer {
     padding: 0;
   }
   .dark-mode-button {
-    padding: 40px 40px;
+    padding: 0;
   }
   #left {
     gap: 1vh;
