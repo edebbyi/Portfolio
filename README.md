@@ -1,4 +1,4 @@
-# Deborah Imafidon
+# E. Deborah Imafidon
 
 This portfolio presents my work at the intersection of product, data, and mission-driven systems. The design is inspired by ER diagrams and MySQL schema layouts to emphasize structure, relationships, and clarity.
 
