@@ -1,13 +1,11 @@
-# Deborah Portfolio
 
-Interactive schema-style portfolio that maps Deborah Imafidon's work, research, and community impact into a navigable system view.
+  # Schema and Focused Views
 
-## Highlights
-- Schema map navigation with inspector panel
-- Snapshot gallery for projects and roles
-- Responsive layout for desktop and mobile
+  This is a code bundle for Schema and Focused Views. The original project is available at https://www.figma.com/design/7OfrYp6a0rUf5guWUiFuAj/Schema-and-Focused-Views.
 
-## Development
-Run `npm i` to install dependencies.
+  ## Running the code
 
-Run `npm run dev` to start the dev server.
+  Run `npm i` to install the dependencies.
+
+  Run `npm run dev` to start the development server.
+  

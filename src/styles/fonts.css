@@ -1,2 +1,4 @@
-/* Expressive type pairing for the redesign */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+/* Monospaced fonts for retro SQL ER-diagram style */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+/* Consolas is a system font, so we'll just declare the font stack in components */

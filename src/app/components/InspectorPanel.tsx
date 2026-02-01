@@ -4,31 +4,32 @@ import { useState, useEffect } from 'react';
 import type { NodeData } from './types';
 
 // Import Anatomie AI snapshots
-import anatomie_pic_1 from '@/assets/07efdb5df7873f0cab77ff28682ee6867b886a12.png';
-import anatomie_pic_2 from '@/assets/7727c0d0f91c77c7211c768817c99bb28e00fd0f.png';
-import anatomie_pic_3 from '@/assets/11fdc797dd132a37a37ac656235c618b2c862b9e.png';
-import anatomie_pic_4 from '@/assets/11701a0c122a942aaac44c8b69d1db8394fa0a95.png';
+import anatomie_pic_1 from 'figma:asset/07efdb5df7873f0cab77ff28682ee6867b886a12.png';
+import anatomie_pic_2 from 'figma:asset/7727c0d0f91c77c7211c768817c99bb28e00fd0f.png';
+import anatomie_pic_3 from 'figma:asset/11fdc797dd132a37a37ac656235c618b2c862b9e.png';
+import anatomie_pic_4 from 'figma:asset/11701a0c122a942aaac44c8b69d1db8394fa0a95.png';
 
 // Import Research Analysis snapshots
-import research_pic_1 from '@/assets/392470b56073a0f6b8d97700a122b7e69708594b.png';
-import research_pic_2 from '@/assets/950f5022982cd1daf1b0fb791e03c4fe4e4e1fc2.png';
-import research_pic_3 from '@/assets/a4a05ae7eb7e801cf0c4c0ce347e90ca391c12f0.png';
+import research_pic_1 from 'figma:asset/392470b56073a0f6b8d97700a122b7e69708594b.png';
+import research_pic_2 from 'figma:asset/950f5022982cd1daf1b0fb791e03c4fe4e4e1fc2.png';
+import research_pic_3 from 'figma:asset/a4a05ae7eb7e801cf0c4c0ce347e90ca391c12f0.png';
 
 // Import Dianalysis snapshot
-import dianalysis_pic_1 from '@/assets/c40ed55538d5712d3b5d53c7aa5da60767eecfa3.png';
+import dianalysis_pic_1 from 'figma:asset/c40ed55538d5712d3b5d53c7aa5da60767eecfa3.png';
 
 // Import Educational Assistant snapshot
-import educational_assistant_pic_1 from '@/assets/895ca08ffbaef03034b4a0ce51d50bfd087139f0.png';
+import educational_assistant_pic_1 from 'figma:asset/895ca08ffbaef03034b4a0ce51d50bfd087139f0.png';
 
 // Import About snapshot
-import about_pic_1 from '@/assets/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
+import about_pic_1 from 'figma:asset/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
 
 // Import Education snapshot
-import education_pic_1 from '@/assets/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
+import education_pic_1 from 'figma:asset/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
 
 interface InspectorPanelProps {
   node: NodeData | null;
   onClose: () => void;
+  theme: 'light' | 'dark';
 }
 
 // Inspector content for each table
@@ -68,9 +69,9 @@ const inspectorContent: Record<string, {
         items: [
           { label: 'project', value: 'Music & Mental Health: Genre, Listening Habits, Mood Effects (2025)' },
           { label: 'dataset', value: 'MXMH Survey (Kaggle) — 10k+ participants' },
-          { label: 'variables', value: 'genre dose, listening time, mood improvement, well-being indicators' },
-          { label: 'analysis_method', value: 'logistic regression, adjusted models, visualization' },
-          { label: 'findings', value: 'genre-specific associations predicting emotional improvement, controlling for hours/day' },
+          { label: 'variables', value: 'Genre dose, listening time, mood improvement, well-being indicators' },
+          { label: 'analysis_method', value: 'Logistic regression, adjusted models, visualization' },
+          { label: 'findings', value: 'Genre-specific associations linked to mood improvement; suggests targeted listening habits that support well-being' },
           { label: 'github', value: 'https://github.com/edebbyi/music-mental-health-analysis' },
         ],
         snapshots: [
@@ -89,27 +90,27 @@ const inspectorContent: Record<string, {
         items: [
           { 
             label: 'identity', 
-            value: 'I work at the intersection of data, automation, intelligent systems, tools, and workflows that people can depend on.' 
+            value: 'Product-minded data and systems builder focused on health and mission-driven work' 
           },
           { 
             label: 'focus', 
-            value: 'translating real questions into reliable data products, clear insights, and simple systems that support strong decision-making' 
+            value: 'Turning research and stakeholder needs into roadmaps, measurable outcomes, and usable products' 
           },
           { 
             label: 'mission', 
-            value: 'build thoughtful, dependable solutions where data, usability, and real-world context work together' 
+            value: 'Deliver thoughtful, reliable products where data, usability, and real-world context align' 
           },
           { 
             label: 'philosophy', 
-            value: '"questions before conclusions"' 
+            value: 'Questions before conclusions' 
           },
           { 
             label: 'domains', 
-            value: 'health analytics, learning and well-being, applied AI, civic and nonprofit systems' 
+            value: 'Public health, nonprofit operations, learning and well-being, applied AI' 
           },
           { 
             label: 'style', 
-            value: 'collaborative, structured, big-picture, constructive' 
+            value: 'Collaborative, structured, outcomes-first, empathetic' 
           },
         ],
         snapshots: [
@@ -122,14 +123,13 @@ const inspectorContent: Record<string, {
     subtitle: 'Technical Skills & Competencies',
     sections: [
       {
-        title: 'Core Skills',
         items: [
-          { label: 'stats_ability', value: 'descriptive, regression, inference' },
+          { label: 'stats_ability', value: 'Product analytics, descriptive, regression, experimentation' },
+          { label: 'tools', value: 'Pandas, NumPy, scikit-learn, dbt, Looker, BigQuery, Power BI, Git, Jupyter, Jira, Notion, Figma' },
+          { label: 'visualization', value: 'Decision-ready dashboards, narrative visuals, interpretability-first' },
+          { label: 'modeling_style', value: 'Hypothesis-driven, interpretable, iteration-ready' },
+          { label: 'communication_skill', value: 'Stakeholder alignment, roadmap storytelling, concise updates' },
           { label: 'languages', value: 'Python, SQL' },
-          { label: 'tools', value: 'pandas, NumPy, scikit-learn, dbt, Looker, BigQuery, Power BI, Git, Jupyter Notebooks' },
-          { label: 'visualization', value: 'clean minimal plots, interpretability-first' },
-          { label: 'modeling_style', value: 'transparent, interpretable, methodical' },
-          { label: 'communication_skill', value: 'structured explanations, clear story' },
         ],
       },
     ],
@@ -165,7 +165,7 @@ const inspectorContent: Record<string, {
           { label: 'role', value: 'Data Analyst Intern' },
           { 
             label: 'responsibilities', 
-            value: 'created dashboards, ran quality-of-care analytics, supported care-coordination reporting' 
+            value: 'Created dashboards, ran quality-of-care analytics, supported care-coordination reporting' 
           },
           { label: 'timeframe', value: '2023–2024' },
         ],
@@ -179,7 +179,7 @@ const inspectorContent: Record<string, {
           { label: 'role', value: 'Data Science Intern' },
           { 
             label: 'responsibilities', 
-            value: 'analyzed early-voting data, engineered features for modeling, and built demographic visualizations for swing-state trends' 
+            value: 'Analyzed early-voting data, engineered features for modeling, and built demographic visualizations for swing-state trends' 
           },
           { label: 'timeframe', value: '2024' },
         ],
@@ -205,11 +205,11 @@ const inspectorContent: Record<string, {
     sections: [
       {
         items: [
-          { label: 'organization', value: 'Girls Who Code x Art (Miami)' },
-          { label: 'role', value: 'STEM Mentor & Creative Coding Support' },
-          { label: 'program', value: 'Creative Coding & Confidence-Building Workshops' },
-          { label: 'population_served', value: 'middle- and high-school girls in underserved communities' },
-          { label: 'impact_summary', value: 'mentorship, coding sessions, project guidance' },
+          { label: 'organization', value: 'Code/Art' },
+          { label: 'role', value: 'Sponsor (Regular Donor)' },
+          { label: 'program', value: 'Supports Code/Art programs that introduce girls to coding through art' },
+          { label: 'population_served', value: 'Girls in grades 3–12, especially underrepresented communities' },
+          { label: 'impact_summary', value: 'Supports a mission to increase girls in CS; 95% report feeling more like coders, 52% plan to major/minor in CS, 87% continue coding' },
           { label: 'year', value: '2025' },
         ],
       },
@@ -223,9 +223,9 @@ const inspectorContent: Record<string, {
         items: [
           { label: 'organization', value: 'Reading Pals (United Way)' },
           { label: 'role', value: 'Early Literacy Mentor' },
-          { label: 'population_served', value: 'young children (K–1st grade)' },
+          { label: 'population_served', value: 'Young children (K–1st grade)' },
           { label: 'year', value: '2025' },
-          { label: 'summary', value: 'one-on-one reading sessions, early literacy support' },
+          { label: 'summary', value: 'One-on-one reading sessions, early literacy support' },
         ],
       },
       {
@@ -233,9 +233,9 @@ const inspectorContent: Record<string, {
         items: [
           { label: 'organization', value: 'Mind & Melody' },
           { label: 'role', value: 'Alzheimer\'s Music Therapy Volunteer' },
-          { label: 'population_served', value: 'older adults with degenerative cognitive conditions' },
+          { label: 'population_served', value: 'Older adults with degenerative cognitive conditions' },
           { label: 'year', value: '2025' },
-          { label: 'summary', value: 'music-based engagement sessions supporting mood and memory' },
+          { label: 'summary', value: 'Music-based engagement sessions supporting mood and memory' },
         ],
       },
     ],
@@ -246,10 +246,10 @@ const inspectorContent: Record<string, {
       {
         items: [
           { label: 'model_name', value: 'Dianalysis' },
-          { label: 'model_type', value: 'nutrition label → diabetes risk feature classifier' },
-          { label: 'interpretability', value: 'transparent rule-based feature logic' },
-          { label: 'features', value: 'five-point engineered metabolic risk score' },
-          { label: 'outputs', value: 'classification + interpretability report' },
+          { label: 'model_type', value: 'Nutrition label → diabetes risk feature classifier' },
+          { label: 'interpretability', value: 'Transparent rule-based feature logic' },
+          { label: 'features', value: 'Five-point engineered metabolic risk score' },
+          { label: 'outputs', value: 'Classification + interpretability report' },
           { label: 'link', value: 'https://github.com/edebbyi/dianalysis' },
         ],
         snapshots: [
@@ -264,11 +264,26 @@ const inspectorContent: Record<string, {
     sections: [
       {
         items: [
+          { label: 'certification_name', value: 'International SCRUM Master Foundation' },
+          { label: 'granting_organization', value: 'Scrum Alliance' },
+          { label: 'year', value: '2025' },
+          { label: 'notes', value: 'Covers Scrum theory + agile principles, three pillars, five values, team roles, events, and artifacts with commitments (Product Goal, Sprint Goal, Definition of Done)' },
+        ],
+      },
+      {
+        items: [
+          { label: 'certification_name', value: 'IBM Project Manager Professional Certificate' },
+          { label: 'granting_organization', value: 'IBM' },
+          { label: 'year', value: 'In Progress' },
+          { label: 'notes', value: '7-course, ~3-month program covering initiation, planning, execution, Agile/Scrum, budgeting, risk, stakeholder communication, and a capstone + CAPM prep' },
+        ],
+      },
+      {
+        items: [
           { label: 'certification_name', value: 'Career Essentials in Data Analysis' },
           { label: 'granting_organization', value: 'Microsoft & LinkedIn' },
           { label: 'year', value: '2024' },
-          { label: 'credential_id', value: 'c06ee2518bfd1dd700a7290c9dda65b9e3848960af63215137dd7cd7f45f3a0' },
-          { label: 'notes', value: 'includes foundations in data analysis, visualization, Excel, and dashboards' },
+          { label: 'notes', value: 'Includes foundations in data analysis, visualization, Excel, and dashboards' },
         ],
       },
     ],
@@ -278,13 +293,13 @@ const inspectorContent: Record<string, {
     sections: [
       {
         items: [
-          { label: 'interaction', value: 'tap or click any table to open its details' },
-          { label: 'system_navigation', value: 'use the menu on the left to jump directly to a table' },
-          { label: 'click_rules', value: 'click the X in the corner to close the inspector panel' },
-          { label: 'keyboard_shortcuts', value: 'on desktop, arrow keys can move between tables (optional)' },
-          { label: 'line_meaning', value: 'lines show conceptual relationships, not strict dependencies' },
-          { label: 'node_meaning', value: 'each table represents part of my professional work' },
-          { label: 'image_guide', value: 'tap an image to view it larger; tap outside the image to close it' },
+          { label: 'interaction', value: 'Tap or click any table to open its details' },
+          { label: 'system_navigation', value: 'Use the menu on the left to jump directly to a table' },
+          { label: 'click_rules', value: 'Click the X in the corner to close the inspector panel' },
+          { label: 'keyboard_shortcuts', value: 'On desktop, arrow keys can move between tables (optional)' },
+          { label: 'line_meaning', value: 'Lines show conceptual relationships, not strict dependencies' },
+          { label: 'node_meaning', value: 'Each table maps to PM-ready capabilities and impact areas' },
+          { label: 'image_guide', value: 'Tap an image to view it larger; tap outside the image to close it' },
         ],
       },
     ],
@@ -296,8 +311,8 @@ const inspectorContent: Record<string, {
         items: [
           { label: 'email', value: 'edebbyi305@gmail.com' },
           { label: 'location', value: 'Miami, FL' },
-          { label: 'portfolio', value: 'tech.deborahi.com' },
-          { label: 'social', value: 'icons' },
+          { label: 'website', value: 'tech.deborahi.com' },
+          { label: 'social', value: 'Icons' },
         ],
       },
     ],
@@ -309,10 +324,10 @@ const inspectorContent: Record<string, {
       {
         items: [
           { label: 'project_name', value: 'Dianalysis' },
-          { label: 'project_type', value: 'nutrition-label classifier and diabetes-risk scoring system' },
-          { label: 'overview', value: 'A rule-based and regression-calibrated scoring pipeline that evaluates packaged foods using metabolic risk logic and curated alternatives.' },
-          { label: 'what_it_does', value: 'Scores items using engineered features, generates a metabolic risk score out of five, and provides interpretable justifications for each recommendation.' },
-          { label: 'technical_notes', value: 'Rule-based feature logic, calibrated LogisticRegression model, Streamlit UI for barcode lookup, synthetic-data training pipeline, reproducible artifact folder.' },
+          { label: 'project_type', value: 'Nutrition-label classifier and diabetes-risk scoring system' },
+          { label: 'overview', value: 'A rule-based and regression-calibrated scoring pipeline that evaluates packaged foods using metabolic risk logic and curated alternatives' },
+          { label: 'what_it_does', value: 'Scores items using engineered features, generates a metabolic risk score out of five, and provides interpretable justifications for each recommendation' },
+          { label: 'technical_notes', value: 'Rule-based feature logic, calibrated LogisticRegression model, Streamlit UI for barcode lookup, synthetic-data training pipeline, reproducible artifact folder' },
           { label: 'link', value: 'https://github.com/edebbyi/dianalysis' },
         ],
         snapshots: [
@@ -325,9 +340,9 @@ const inspectorContent: Record<string, {
         items: [
           { label: 'project_name', value: 'Educational AI Assistant' },
           { label: 'project_type', value: 'Document-grounded Q&A system with tool-calling agent' },
-          { label: 'overview', value: 'An intelligent assistant that reads, searches, and summarizes user documents using dynamic tool selection and multi-step reasoning.' },
-          { label: 'what_it_does', value: 'Chooses tools autonomously, retrieves relevant text, answers questions with citations, and adapts its reasoning based on user follow-ups.' },
-          { label: 'technical_notes', value: 'LangChain agent with tool-calling, Pinecone vector store, windowed conversational memory, Streamlit multi-user interface, encrypted credential storage.' },
+          { label: 'overview', value: 'An intelligent assistant that reads, searches, and summarizes user documents using dynamic tool selection and multi-step reasoning' },
+          { label: 'what_it_does', value: 'Chooses tools autonomously, retrieves relevant text, answers questions with citations, and adapts its reasoning based on user follow-ups' },
+          { label: 'technical_notes', value: 'LangChain agent with tool-calling, Pinecone vector store, windowed conversational memory, Streamlit multi-user interface, encrypted credential storage' },
           { label: 'link', value: 'https://github.com/edebbyi/education-assistant' },
         ],
         snapshots: [
@@ -338,14 +353,14 @@ const inspectorContent: Record<string, {
   },
 };
 
-export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
+export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   // Detect mobile screen size
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1025);
     };
     
     checkMobile();
@@ -365,21 +380,21 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
   const content = inspectorContent[node.title];
   
   // Dark mode colors - refined
-  const panelBgColor = 'var(--surface-1)';
-  const titleColor = 'var(--ink-1)';
-  const subtitleColor = 'var(--ink-muted)';
-  const labelColor = 'var(--ink-muted)';
-  const textColor = 'var(--ink-1)';
-  const linkColor = 'var(--ink-1)';
-  const closeIconColor = 'var(--ink-muted)';
-  const borderColor = 'var(--border-1)';
-  const hoverBgColor = 'var(--surface-2)';
-  const dividerColor = 'var(--border-2)';
-  const buttonBgColor = 'var(--surface-2)';
-  const buttonHoverColor = 'var(--surface-3)';
-  const buttonBorderColor = 'var(--border-1)';
-  const iconColor = 'var(--ink-1)';
-  const dragHandleColor = 'var(--border-1)';
+  const panelBgColor = theme === 'dark' ? '#1A1D21' : '#F9FAFC';
+  const titleColor = theme === 'dark' ? '#FFFFFF' : '#1C1F23';
+  const subtitleColor = theme === 'dark' ? 'rgba(255,255,255,0.55)' : '#6A7687';
+  const labelColor = theme === 'dark' ? 'rgba(255,255,255,0.55)' : '#6A7687';
+  const textColor = theme === 'dark' ? 'rgba(255,255,255,0.80)' : '#2D3440';
+  const linkColor = theme === 'dark' ? 'rgba(255,255,255,0.80)' : '#2D3440';
+  const closeIconColor = theme === 'dark' ? '#9AA5B3' : '#6A7687';
+  const borderColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.10)';
+  const hoverBgColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)';
+  const dividerColor = theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)';
+  const buttonBgColor = theme === 'dark' ? '#2D3748' : '#E4E8EE';
+  const buttonHoverColor = theme === 'dark' ? '#3A4556' : '#DDE2E8';
+  const buttonBorderColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.12)';
+  const iconColor = theme === 'dark' ? 'rgba(255,255,255,0.80)' : '#2D3440';
+  const dragHandleColor = theme === 'dark' ? '#475569' : '#CBD5E1';
 
   return (
     <AnimatePresence>
@@ -393,11 +408,13 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
           className={`inspector-panel visible fixed right-0 top-0 h-full overflow-y-auto`}
           style={{
             width: '100%',
-            maxWidth: '420px',
-            backgroundColor: panelBgColor,
-            borderLeft: '1px solid var(--border-1)',
-            boxShadow: '-16px 0 40px var(--shadow-color)',
-            fontFamily: 'var(--font-body)',
+            maxWidth: '400px',
+            backgroundColor: theme === 'dark' ? '#1C2128' : '#F9FAFC',
+            borderLeft: theme === 'dark' ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.08)',
+            boxShadow: theme === 'dark' 
+              ? '-4px 0 16px rgba(0, 0, 0, 0.3)' 
+              : '-4px 0 16px rgba(0, 0, 0, 0.06)',
+            fontFamily: 'Consolas, Monaco, Menlo, monospace',
             zIndex: 40,
             overflowX: 'hidden',
           }}
@@ -414,7 +431,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
               left: 0,
               right: 0,
               zIndex: 50,
-              backgroundColor: panelBgColor,
+              backgroundColor: theme === 'dark' ? '#1C2128' : '#F9FAFC',
             }}
           >
             {/* Colored top border */}
@@ -459,11 +476,11 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
               <h2
                 className="inspector-heading"
                 style={{
-                  fontSize: '18px',
-                  fontWeight: 600,
-                  letterSpacing: '0.3px',
+                  fontSize: '15px',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
                   color: titleColor,
-                  fontFamily: 'var(--font-display)',
                 }}
               >
                 {node.title}
@@ -471,9 +488,9 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
               {content?.subtitle && (
                 <p
                   style={{
-                    fontSize: '13px',
+                    fontSize: '12px',
                     color: subtitleColor,
-                    marginTop: '6px',
+                    marginTop: '4px',
                   }}
                 >
                   {content.subtitle}
@@ -514,7 +531,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                     // Render value based on type
                     const renderValue = () => {
                       // Special handling for Social field in contact
-                      if (node.title === 'contact' && item.label === 'Social' && item.value === 'icons') {
+                      if (node.title === 'contact' && item.label.toLowerCase() == 'social' && item.value.toLowerCase() === 'icons') {
                         return (
                           <div className="flex items-center gap-3">
                             <a
@@ -549,7 +566,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                             rel="noopener noreferrer"
                             className="hover:underline transition-all"
                             style={{
-                              fontSize: '14px',
+                              fontSize: '15px',
                               color: linkColor,
                               lineHeight: '1.5',
                               cursor: 'pointer',
@@ -566,7 +583,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                             href={`mailto:${item.value}`}
                             className="hover:underline transition-all"
                             style={{
-                              fontSize: '14px',
+                              fontSize: '15px',
                               color: linkColor,
                               lineHeight: '1.5',
                               cursor: 'pointer',
@@ -588,10 +605,9 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                           style={{
                             fontSize: '11px',
                             color: labelColor,
-                            marginBottom: '6px',
+                            marginBottom: '4px',
                             textTransform: 'uppercase',
-                            letterSpacing: '1px',
-                            fontFamily: 'var(--font-mono)',
+                            letterSpacing: '0.5px',
                           }}
                         >
                           {item.label}
@@ -599,7 +615,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                         <div
                           className="inspector-value"
                           style={{
-                            fontSize: '14px',
+                            fontSize: '15px',
                             color: textColor,
                             lineHeight: '1.5',
                             wordBreak: 'break-word',
@@ -621,12 +637,11 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                       className="inspector-section-title"
                       style={{
                         fontSize: '11px',
-                        fontWeight: 600,
+                        fontWeight: 'bold',
                         textTransform: 'uppercase',
-                        letterSpacing: '1px',
+                        letterSpacing: '0.8px',
                         color: labelColor,
                         marginBottom: '12px',
-                        fontFamily: 'var(--font-mono)',
                       }}
                     >
                       SNAPSHOTS
@@ -648,13 +663,15 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                             maxHeight: '120px',
                             overflow: 'hidden',
                             border: `1px solid ${borderColor}`,
-                            borderRadius: '12px',
+                            borderRadius: '5px',
                             cursor: 'pointer',
                             transition: 'all 0.2s ease',
                           }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.backgroundColor = hoverBgColor;
-                            e.currentTarget.style.boxShadow = '0 10px 24px var(--shadow-color)';
+                            if (theme === 'dark') {
+                              e.currentTarget.style.boxShadow = '0 0 8px rgba(255,255,255,0.04)';
+                            }
                           }}
                           onMouseLeave={(e) => {
                             e.currentTarget.style.backgroundColor = 'transparent';
@@ -664,8 +681,6 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                           <img
                             src={imageUrl}
                             alt={`Snapshot ${idx + 1}`}
-                        loading="lazy"
-                        decoding="async"
                             style={{
                               width: '100%',
                               height: 'auto',
@@ -685,9 +700,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                         fontSize: '10px',
                         color: subtitleColor,
                         textAlign: 'center',
-                        marginTop: '6px',
-                        fontFamily: 'var(--font-mono)',
-                        letterSpacing: '0.6px',
+                        marginTop: '4px',
                       }}
                     >
                       click to enlarge
@@ -717,11 +730,10 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                 <h3
                   style={{
                     fontSize: '11px',
-                    fontWeight: 600,
+                    fontWeight: 'bold',
                     textTransform: 'uppercase',
-                    letterSpacing: '1px',
+                    letterSpacing: '0.8px',
                     color: labelColor,
-                    fontFamily: 'var(--font-mono)',
                     marginBottom: '12px',
                   }}
                 >
@@ -743,13 +755,15 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                         maxHeight: '120px',
                         overflow: 'hidden',
                         border: `1px solid ${borderColor}`,
-                        borderRadius: '12px',
+                        borderRadius: '5px',
                         cursor: 'pointer',
                         transition: 'all 0.2s ease',
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = hoverBgColor;
-                        e.currentTarget.style.boxShadow = '0 10px 24px var(--shadow-color)';
+                        if (theme === 'dark') {
+                          e.currentTarget.style.boxShadow = '0 0 8px rgba(255,255,255,0.04)';
+                        }
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = 'transparent';
@@ -759,8 +773,6 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                       <img
                         src={imageUrl}
                         alt={`Snapshot ${idx + 1}`}
-                        loading="lazy"
-                        decoding="async"
                         style={{
                           width: '100%',
                           height: 'auto',
@@ -800,7 +812,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
                   backgroundColor: buttonBgColor,
                   border: `1px solid ${buttonBorderColor}`,
                   borderRadius: '6px',
-                  fontFamily: 'var(--font-body)',
+                  fontFamily: 'Consolas, Monaco, Menlo, monospace',
                   fontSize: '13px',
                   fontWeight: 600,
                   color: titleColor,
@@ -840,7 +852,7 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(9, 12, 12, 0.9)',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -857,14 +869,12 @@ export function InspectorPanel({ node, onClose }: InspectorPanelProps) {
             className="image-modal-content"
             src={selectedImage}
             alt="Enlarged snapshot"
-            loading="lazy"
-            decoding="async"
             style={{
               maxWidth: 'min(90vw, 600px)',
               maxHeight: 'min(90vh, 700px)',
               objectFit: 'contain',
-              borderRadius: '14px',
-              boxShadow: '0 24px 60px var(--shadow-color)',
+              borderRadius: '8px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
             }}
             onClick={(e) => e.stopPropagation()}
           />

@@ -4,7 +4,7 @@
 @media (min-width: 1025px) {
   /* Account for sidebar on left, nodes positioned to the left */
   .schema-view-container {
-    padding-left: 200px; /* Sidebar width */
+    padding-left: 180px; /* Sidebar width */
     justify-content: flex-start !important; /* Keep left-aligned on desktop */
   }
   
@@ -19,7 +19,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* Center the canvas on medium screens */
   .schema-view-container {
-    padding-left: 200px; /* Account for sidebar */
+    padding-left: 180px; /* Account for sidebar */
     justify-content: center !important; /* Center the canvas */
   }
   

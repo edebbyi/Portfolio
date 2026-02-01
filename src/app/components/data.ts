@@ -136,7 +136,7 @@ export const nodeData: NodeData[] = [
     id: 'large_orders',
     title: 'certification',
     category: 'table',
-    fields: ['certification_name', 'granting_org', 'year', 'credential_id', 'notes'],
+    fields: ['certification_name', 'granting_org', 'year', 'notes'],
     x: 320,
     y: 550,
     color: '#F781AD', // Soft vibrant pink
@@ -156,7 +156,7 @@ export const nodeData: NodeData[] = [
     id: 'vaal',
     title: 'contact',
     category: 'table',
-    fields: ['email', 'location', 'portfolio', 'social'],
+    fields: ['email', 'location', 'website', 'social'],
     x: 560,
     y: 40,
     color: '#FFB199', // Soft peach

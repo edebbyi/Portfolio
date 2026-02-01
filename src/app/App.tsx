@@ -124,7 +124,7 @@ export default function App() {
   }, [isLoggedIn, isTransitioning]);
 
   return (
-    <div className={`app-shell ${theme === 'dark' ? 'dark' : ''}`}>
+    <div className="relative w-full h-screen overflow-hidden" style={{ backgroundColor: theme === 'dark' ? '#0F1419' : '#FAF7F2' }}>
       <AnimatePresence mode="wait">
         {!isLoggedIn && !isTransitioning && (
           <motion.div
@@ -169,10 +169,12 @@ export default function App() {
               selectedNode={selectedNode}
               onClose={handleCloseInspector}
               onLogout={handleLogout}
+              theme={theme}
             />
             <InspectorPanel 
               node={selectedNode}
               onClose={handleCloseInspector}
+              theme={theme}
             />
           </motion.div>
         )}

@@ -10,9 +10,10 @@ interface SchemaViewProps {
   selectedNode: NodeData | null;
   onClose: () => void;
   onLogout: () => void;
+  theme: 'light' | 'dark';
 }
 
-export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: SchemaViewProps) {
+export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout, theme }: SchemaViewProps) {
   const [nodes, setNodes] = useState<NodeData[]>(nodeData);
   const [draggedNode, setDraggedNode] = useState<string | null>(null);
   const [sidebarHoveredNodeId, setSidebarHoveredNodeId] = useState<string | null>(null);
@@ -148,8 +149,7 @@ export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: Sch
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        paddingTop: 'clamp(24px, 2.5vh, 64px)',
-        paddingBottom: 'clamp(20px, 3vh, 52px)',
+        paddingTop: 'clamp(15px, 1.5vh, 40px)',
         overflow: 'hidden',
       }}
     >
@@ -160,6 +160,7 @@ export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: Sch
         hoveredNodeId={sidebarHoveredNodeId}
         onHover={setSidebarHoveredNodeId}
         selectedNodeId={selectedNode?.id || null}
+        theme={theme}
         onLogout={onLogout}
         onCloseInspector={onClose}
       />
@@ -181,30 +182,31 @@ export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: Sch
             width: isDesktop ? '1100px' : '900px',
             height: isDesktop ? '720px' : '840px',
             zIndex: 0,
-            opacity: selectedNode ? 0.35 : 0.75  // Dim grid and connectors when node selected
+            opacity: selectedNode ? 0.5 : 1  // Dim grid and connectors to 50% when node selected
           }}
         >
           {/* Grid pattern - retro SQL ER-diagram style */}
           <defs>
-            <pattern id="erdGrid" width="26" height="26" patternUnits="userSpaceOnUse">
+            <pattern id="erdGrid" width="24" height="24" patternUnits="userSpaceOnUse">
               <path
-                d="M 26 0 L 0 0 0 26"
+                d="M 24 0 L 0 0 0 24"
                 fill="none"
-                stroke="var(--grid-line)"
+                stroke={theme === 'dark' ? 'rgba(255,255,255,0.02)' : '#D8D2C8'}
                 strokeWidth="1"
-                opacity="0.6"
+                opacity={theme === 'dark' ? '1' : '0.25'}
               />
             </pattern>
           </defs>
           
           {/* Apply grid to background */}
-          <rect width="1600" height="1000" fill="url(#erdGrid)" />
+          <rect width="1440" height="900" fill="url(#erdGrid)" />
           
           <Connectors 
             nodes={nodes} 
             connections={connections} 
             selectedNodeId={selectedNode?.id || null}
             connectedNodeIds={connectedNodeIds}
+            theme={theme}
           />
         </svg>
 
@@ -225,6 +227,7 @@ export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: Sch
               inputNodes={selectedNode?.id === node.id ? inputNodes : []}
               outputNodes={selectedNode?.id === node.id ? outputNodes : []}
               sidebarHoveredNodeId={sidebarHoveredNodeId}
+              theme={theme}
             />
           ))}
           
@@ -233,10 +236,10 @@ export function SchemaView({ onNodeClick, selectedNode, onClose, onLogout }: Sch
             className="mobile-connector-notice"
             style={{ 
               display: 'none',
-              color: 'var(--ink-muted)',
-              fontFamily: 'var(--font-mono)',
+              color: theme === 'dark' ? '#8B949E' : '#999',
+              fontFamily: 'Consolas, Monaco, Menlo, monospace',
               fontSize: '11px',
-              opacity: 0.7,
+              opacity: 0.5,
             }}
           >
             Connections hidden on mobile for readability

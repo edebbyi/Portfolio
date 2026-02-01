@@ -5,9 +5,10 @@ interface ConnectorsProps {
   connections: Connection[];
   selectedNodeId?: string | null;
   connectedNodeIds?: Set<string>;
+  theme: 'light' | 'dark';
 }
 
-export function Connectors({ nodes, connections, selectedNodeId, connectedNodeIds }: ConnectorsProps) {
+export function Connectors({ nodes, connections, selectedNodeId, connectedNodeIds, theme }: ConnectorsProps) {
   const getNodePosition = (nodeId: string, side: 'left' | 'right') => {
     const node = nodes.find(n => n.id === nodeId);
     if (!node) return { x: 0, y: 0 };
@@ -65,10 +66,10 @@ export function Connectors({ nodes, connections, selectedNodeId, connectedNodeId
         const path = createOrthogonalPath(start, end, connection.fromSide, connection.toSide);
         const arrowPath = createArrowhead(end, connection.toSide);
 
-        // Connector colors aligned with the redesign palette
-        const lineColor = 'var(--grid-line)';
-        const lineOpacity = selectedNodeId ? 0.55 : 0.75;
-        const diamondColor = 'var(--ink-muted)';
+        // Connector colors based on theme - refined SQL-gray
+        const lineColor = theme === 'dark' ? '#4E5661' : '#D0D0D0';
+        const lineOpacity = theme === 'dark' ? 0.65 : 1;
+        const diamondColor = theme === 'dark' ? '#6B7280' : '#8F8F8F';
         
         return (
           <g key={idx}>

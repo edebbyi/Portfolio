@@ -17,6 +17,7 @@ interface SchemaNodeProps {
   inputNodes: NodeData[];
   outputNodes: NodeData[];
   sidebarHoveredNodeId: string | null;
+  theme: 'light' | 'dark';
 }
 
 export function SchemaNode({ 
@@ -32,6 +33,7 @@ export function SchemaNode({
   inputNodes,
   outputNodes,
   sidebarHoveredNodeId,
+  theme,
 }: SchemaNodeProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -121,15 +123,15 @@ export function SchemaNode({
   // Use original node color for glow effect
   const glowColor = node.color;
 
-  // Header and node colors tied to the redesign palette
-  const nodeBgColor = 'var(--surface-1)';
-  const headerBgColor = 'var(--surface-2)';
-  const nodeBorderColor = 'var(--border-1)';
-  const headerBorderBottom = 'var(--border-1)';
-  const headerBorderTop = 'var(--border-2)';
-  const fieldBorderColor = 'var(--border-2)';
-  const textColor = 'var(--ink-1)';
-  const fieldTextColor = 'var(--ink-2)';
+  // Header and node colors based on theme with refined contrast
+  const nodeBgColor = theme === 'dark' ? '#1C2128' : '#FFFFFF';
+  const headerBgColor = theme === 'dark' ? '#2C3744' : '#E8EEF7';
+  const nodeBorderColor = theme === 'dark' ? '#30363D' : '#C3C3C3';
+  const headerBorderBottom = theme === 'dark' ? '#4A5568' : '#A7B4C2';
+  const headerBorderTop = theme === 'dark' ? 'rgba(255,255,255,0.05)' : '#FFFFFF';
+  const fieldBorderColor = theme === 'dark' ? '#30363D' : '#EFEFEF';
+  const textColor = theme === 'dark' ? '#C9D1D9' : '#1C1F23';
+  const fieldTextColor = theme === 'dark' ? '#C9D1D9' : '#333333';
   
   // Dimmed opacity for non-selected nodes
   const nodeOpacity = isOtherFocused ? 0.65 : 1;
@@ -152,7 +154,7 @@ export function SchemaNode({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Selected Node Glow Ring - OUTSIDE the node */}
-      {isFocused && (
+      {isFocused && theme === 'dark' && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -163,10 +165,10 @@ export function SchemaNode({
             left: 0,
             right: 0,
             bottom: 0,
-            borderRadius: '12px',
+            borderRadius: '6px',
             pointerEvents: 'none',
             zIndex: -1,
-            boxShadow: `0 0 18px ${node.color}55`,
+            boxShadow: `0 0 14px ${node.color}55`,
           }}
         />
       )}
@@ -180,7 +182,7 @@ export function SchemaNode({
             left: -4,
             right: -4,
             bottom: -4,
-            borderRadius: '12px',
+            borderRadius: '5px',
             pointerEvents: 'none',
             zIndex: 0,
             overflow: 'hidden',
@@ -387,12 +389,12 @@ export function SchemaNode({
         style={{ 
           position: 'relative',
           backgroundColor: nodeBgColor,
-          minWidth: node.width ? `${node.width}px` : '176px',
-          borderRadius: '12px',
+          minWidth: node.width ? `${node.width}px` : '160px',
+          borderRadius: '4px',
           overflow: 'visible',
           boxShadow: (isFocused && !isDragging)
-            ? `0 18px 30px var(--shadow-color), 0 0 18px ${glowColor}40`
-            : '0 10px 22px var(--shadow-color)',
+            ? `0 1px 3px ${theme === 'dark' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.12)'}, 0 0 10px ${glowColor}40`
+            : theme === 'dark' ? '0 1px 3px rgba(0,0,0,0.3)' : '0 1px 3px rgba(0,0,0,0.12)',
           border: `1px solid ${nodeBorderColor}`,
           zIndex: 2,
         }}
@@ -417,26 +419,25 @@ export function SchemaNode({
           style={{ 
             position: 'relative',
             backgroundColor: headerBgColor,
-            borderTop: `1px solid ${headerBorderTop}`,
+            borderTop: theme === 'dark' ? '1px solid #3A4556' : '1px solid #FFFFFF',
             borderBottom: `1px solid ${headerBorderBottom}`,
-            height: '40px',
+            height: '34px',
             display: 'flex',
             alignItems: 'center',
-            paddingLeft: '14px',
-            paddingRight: '14px',
-            borderTopLeftRadius: '12px',
-            borderTopRightRadius: '12px',
+            paddingLeft: '12px',
+            paddingRight: '12px',
+            borderTopLeftRadius: '4px',
+            borderTopRightRadius: '4px',
           }}
         >
           <div 
             style={{ 
               color: textColor,
-              fontSize: '13px',
-              fontWeight: isFocused ? 700 : 600,
-              letterSpacing: '0.6px',
-              textTransform: 'uppercase',
+              fontSize: '12px',
+              fontWeight: isFocused ? 700 : 600,  // Bold when selected, semibold when not
+              letterSpacing: '0.3px',
               opacity: textOpacity,
-              fontFamily: 'var(--font-display)',
+              fontFamily: 'Consolas, Monaco, Menlo, monospace',
             }}
           >
             {node.title}
@@ -446,15 +447,14 @@ export function SchemaNode({
           <motion.div 
             style={{
               position: 'absolute',
-              right: '14px',
+              right: '12px',
               top: '50%',
               transform: 'translateY(-50%)',
-              width: '12px',
-              height: '12px',
+              width: '8px',
+              height: '8px',
               backgroundColor: node.color,
-              border: '1px solid var(--border-1)',
-              boxShadow: `0 0 10px ${node.color}55`,
-              borderRadius: '999px',
+              border: theme === 'dark' ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.15)',
+              borderRadius: '1px',
             }}
             animate={isPulsing ? {
               opacity: [1, 0.6, 1],
@@ -481,18 +481,18 @@ export function SchemaNode({
                 style={{
                   paddingTop: '6px',
                   paddingBottom: '6px',
-                  paddingLeft: '14px',
-                  paddingRight: '14px',
+                  paddingLeft: '12px',
+                  paddingRight: '12px',
                   borderBottom: idx < node.fields.length - 1 && idx < 7 ? `1px solid ${fieldBorderColor}` : 'none',
                 }}
               >
                 <div 
                   style={{
-                    fontSize: '12px',
+                    fontSize: '11px',
                     color: fieldTextColor,
                     lineHeight: '1.4',
                     opacity: textOpacity,
-                    fontFamily: 'var(--font-mono)',
+                    fontFamily: 'Consolas, Monaco, Menlo, monospace',
                   }}
                 >
                   {field}
