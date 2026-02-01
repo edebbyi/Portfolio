@@ -1,0 +1,184 @@
+/* Mobile breakpoint: ≤ 767px (phones only) */
+@media (max-width: 767px) {
+  /* Mobile Sidebar Styles */
+  .schema-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .schema-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Sidebar overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 29;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .sidebar-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile hamburger button positioning */
+  .mobile-hamburger-button {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition: opacity 0.2s ease;
+  }
+
+  .mobile-hamburger-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Mobile exit button positioning */
+  .mobile-exit-button {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  /* Remove desktop padding on mobile */
+  .schema-view-container {
+    padding-left: 0 !important;
+  }
+
+  /* Disable desktop canvas scaling on mobile */
+  .desktop-canvas-wrapper {
+    transform: none !important;
+    width: 100% !important;
+    /* Position below the top buttons - start at 72px from top */
+    position: fixed !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    /* Remove padding - not needed anymore */
+    padding-top: 0 !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* Mobile: Stack nodes vertically in natural layout */
+  .schema-nodes-container {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 20px 16px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Reset node positioning for mobile stacking */
+  .schema-node {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    width: 85% !important;
+    max-width: none !important;
+  }
+
+  /* Hide connectors/grid on mobile for clean stacked view */
+  .schema-grid,
+  .connectors-container {
+    display: none !important;
+  }
+
+  /* Show mobile connector notice */
+  .mobile-connector-notice {
+    display: block !important;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+  }
+
+  /* Inspector Panel - Mobile bottom sheet - takes full vertical space below header */
+  .inspector-panel {
+    position: fixed !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 16px 16px 0 0 !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.3s ease !important;
+    z-index: 100 !important;
+  }
+
+  .inspector-panel.visible {
+    transform: translateY(0) !important;
+  }
+
+  /* Inspector drag handle - visible on mobile */
+  .inspector-drag-handle {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 8px auto 12px;
+    opacity: 0.3;
+    cursor: grab;
+  }
+
+  /* Login Screen Mobile Styles */
+  .login-footer {
+    padding: 0 16px !important;
+    max-width: 100% !important;
+    line-height: 1.4 !important;
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 28px !important;
+  }
+
+
+  /* Login layout adjustments */
+  .login-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .login-layout > div:first-child {
+    order: 2;
+  }
+
+  .login-layout > div:last-child {
+    order: 1;
+  }
+
+}
