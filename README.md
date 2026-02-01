@@ -1,11 +1,8 @@
+# Deborah Imafidon
 
-  # Schema and Focused Views
+This portfolio presents my work at the intersection of product, data, and mission-driven systems. The design is inspired by ER diagrams and MySQL schema layouts to emphasize structure, relationships, and clarity.
 
-  This is a code bundle for Schema and Focused Views. The original project is available at https://www.figma.com/design/7OfrYp6a0rUf5guWUiFuAj/Schema-and-Focused-Views.
+## Running the code
+Run `npm i` to install dependencies.
 
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+Run `npm run dev` to start the development server.
