@@ -98,6 +98,7 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
           Click any table to inspect • Press EXIT to leave system
         </div>
       )}
+      )}
 
       {/* Mobile Menu Toggle Button - Only visible on small screens */}
       <button
@@ -119,20 +120,21 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
       </button>
 
       {/* Top Header Bar with Instructions and EXIT - Desktop only */}
-      <div
-        className="hidden md:flex"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: '180px',
-          right: 0,
-          height: '48px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '0 20px',
-          zIndex: 25,
-        }}
-      >
+      {!isMobileMenuOpen && (
+        <div
+          className="hidden md:flex"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: '180px',
+            right: 0,
+            height: '48px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0 20px',
+            zIndex: 25,
+          }}
+        >
         {/* Instructions - absolutely centered */}
         <div
           style={{
