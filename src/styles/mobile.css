@@ -209,3 +209,7 @@
   }
 
 }
+  .mobile-header-instructions.nav-open {
+    opacity: 0 !important;
+    display: none !important;
+  }

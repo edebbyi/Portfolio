@@ -76,7 +76,7 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
       {/* Mobile header instructions - centered between hamburger and exit */}
       {!isMobileMenuOpen && (
         <div
-          className="mobile-header-instructions md:hidden"
+          className={`mobile-header-instructions md:hidden ${isMobileMenuOpen ? "nav-open" : ""}`}
           style={{
             position: 'fixed',
             top: '12px',
@@ -91,7 +91,7 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
             color: theme === 'dark' ? '#8B949E' : '#999',
             opacity: 0.6,
             textAlign: 'center',
-            zIndex: 49,
+            zIndex: 30,
             pointerEvents: 'none',
           }}
         >
@@ -191,7 +191,7 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
           borderRight: theme === 'dark' ? '1px solid #30363D' : '1px solid #D1D1D1',
           fontFamily: 'IBM Plex Mono, Courier New, monospace',
           fontSize: '11px',
-          zIndex: 30,
+          zIndex: 70,
         }}
       >
         {/* Header with close button (mobile only) */}
