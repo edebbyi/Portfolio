@@ -4,27 +4,25 @@ import { useState, useEffect } from 'react';
 import type { NodeData } from './types';
 
 // Import Anatomie AI snapshots
-import anatomie_pic_1 from 'figma:asset/07efdb5df7873f0cab77ff28682ee6867b886a12.png';
-import anatomie_pic_2 from 'figma:asset/7727c0d0f91c77c7211c768817c99bb28e00fd0f.png';
-import anatomie_pic_3 from 'figma:asset/11fdc797dd132a37a37ac656235c618b2c862b9e.png';
-import anatomie_pic_4 from 'figma:asset/11701a0c122a942aaac44c8b69d1db8394fa0a95.png';
+import anatomie_pic_1 from 'figma:asset/work-experience-anatomie-1.png';
+import anatomie_pic_2 from 'figma:asset/work-experience-anatomie-2.png';
+import anatomie_pic_3 from 'figma:asset/work-experience-anatomie-3.png';
+import anatomie_pic_4 from 'figma:asset/work-experience-anatomie-4.png';
 
 // Import Research Analysis snapshots
-import research_pic_1 from 'figma:asset/392470b56073a0f6b8d97700a122b7e69708594b.png';
-import research_pic_2 from 'figma:asset/950f5022982cd1daf1b0fb791e03c4fe4e4e1fc2.png';
-import research_pic_3 from 'figma:asset/a4a05ae7eb7e801cf0c4c0ce347e90ca391c12f0.png';
+import research_pic_1 from 'figma:asset/research-analysis-1.png';
+import research_pic_2 from 'figma:asset/research-analysis-2.png';
+import research_pic_3 from 'figma:asset/research-analysis-3.png';
 
-// Import Dianalysis snapshot
-import dianalysis_pic_1 from 'figma:asset/c40ed55538d5712d3b5d53c7aa5da60767eecfa3.png';
-
-// Import Educational Assistant snapshot
-import educational_assistant_pic_1 from 'figma:asset/895ca08ffbaef03034b4a0ce51d50bfd087139f0.png';
+// Import Personal Projects snapshots
+import dianalysis_pic_1 from 'figma:asset/personal-projects-dianalysis.png';
+import educational_assistant_pic_1 from 'figma:asset/personal-projects-chatbot.png';
 
 // Import About snapshot
-import about_pic_1 from 'figma:asset/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
+import about_pic_1 from 'figma:asset/about-1.png';
 
 // Import Education snapshot
-import education_pic_1 from 'figma:asset/09802b9c0abfa668dbd7330fdc4f971e021f3868.png';
+import education_pic_1 from 'figma:asset/education-1.jpeg';
 
 interface InspectorPanelProps {
   node: NodeData | null;
