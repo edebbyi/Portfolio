@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import { X, Linkedin, Github } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import type { NodeData } from './types';
@@ -352,6 +352,7 @@ const inspectorContent: Record<string, {
 };
 
 export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
+  const dragControls = useDragControls();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -418,6 +419,9 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
           }}
           onDragEnd={handleDragEnd}
           drag={isMobile ? 'y' : false}
+          dragControls={dragControls}
+          dragListener={false}
+          dragElastic={0.2}
           dragConstraints={{ top: 0, bottom: 0 }}
         >
           {/* Sticky header: colored bar + drag handle only */}
@@ -445,6 +449,11 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
               className="inspector-drag-handle md:hidden" 
               style={{
                 backgroundColor: dragHandleColor,
+              }}
+              onPointerDown={(event) => {
+                if (isMobile) {
+                  dragControls.start(event);
+                }
               }}
             />
           </div>

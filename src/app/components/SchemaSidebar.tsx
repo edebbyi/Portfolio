@@ -74,28 +74,30 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
       </button>
 
       {/* Mobile header instructions - centered between hamburger and exit */}
-      <div
-        className="mobile-header-instructions md:hidden"
-        style={{
-          position: 'fixed',
-          top: '12px',
-          left: '72px',
-          right: '72px',
-          height: '48px',
-          display: isMobileMenuOpen ? 'none' : 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: 'Consolas, Monaco, Menlo, monospace',
-          fontSize: '9px',
-          color: theme === 'dark' ? '#8B949E' : '#999',
-          opacity: 0.6,
-          textAlign: 'center',
-          zIndex: 49,
-          pointerEvents: 'none',
-        }}
-      >
-        Click any table to inspect • Press EXIT to leave system
-      </div>
+      {!isMobileMenuOpen && (
+        <div
+          className="mobile-header-instructions md:hidden"
+          style={{
+            position: 'fixed',
+            top: '12px',
+            left: '72px',
+            right: '72px',
+            height: '48px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: 'Consolas, Monaco, Menlo, monospace',
+            fontSize: '9px',
+            color: theme === 'dark' ? '#8B949E' : '#999',
+            opacity: 0.6,
+            textAlign: 'center',
+            zIndex: 49,
+            pointerEvents: 'none',
+          }}
+        >
+          Click any table to inspect • Press EXIT to leave system
+        </div>
+      )}
 
       {/* Mobile Menu Toggle Button - Only visible on small screens */}
       <button
