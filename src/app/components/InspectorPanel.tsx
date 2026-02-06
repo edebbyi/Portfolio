@@ -369,7 +369,7 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
 
   // Handle drag end - close if dragged down enough
   const handleDragEnd = (_event: any, info: any) => {
-    if (isMobile && info.offset.y > 80) {
+    if (isMobile && (info.offset.y > 60 || info.velocity.y > 800)) {
       onClose();
     }
   };
@@ -421,8 +421,9 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
           drag={isMobile ? 'y' : false}
           dragControls={dragControls}
           dragListener={false}
-          dragElastic={0.2}
-          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={0.12}
+          dragSnapToOrigin
+          dragConstraints={{ top: 0, bottom: 120 }}
         >
           {/* Sticky header: colored bar + drag handle only */}
           <div 
