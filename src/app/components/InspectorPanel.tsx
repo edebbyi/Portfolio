@@ -452,7 +452,13 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
               }}
               onPointerDown={(event) => {
                 if (isMobile) {
-                  dragControls.start(event);
+                  event.preventDefault();
+                  dragControls.start(event.nativeEvent);
+                }
+              }}
+              onTouchStart={(event) => {
+                if (isMobile) {
+                  dragControls.start(event.nativeEvent);
                 }
               }}
             />

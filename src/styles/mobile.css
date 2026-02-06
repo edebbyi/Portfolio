@@ -158,6 +158,9 @@
     margin: 8px auto 12px;
     opacity: 0.3;
     cursor: grab;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
 
   /* Login Screen Mobile Styles */
