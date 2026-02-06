@@ -369,7 +369,7 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
 
   // Handle drag end - close if dragged down enough
   const handleDragEnd = (_event: any, info: any) => {
-    if (isMobile && info.offset.y > 150) {
+    if (isMobile && info.offset.y > 80) {
       onClose();
     }
   };
