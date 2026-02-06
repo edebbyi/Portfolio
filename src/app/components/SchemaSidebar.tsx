@@ -98,7 +98,6 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
           Click any table to inspect • Press EXIT to leave system
         </div>
       )}
-      )}
 
       {/* Mobile Menu Toggle Button - Only visible on small screens */}
       <button
@@ -181,6 +180,7 @@ export function SchemaSidebar({ nodes, onNodeSelect, hoveredNodeId, onHover, sel
           EXIT
         </button>
       </div>
+      )}
 
       {/* Sidebar - responsive */}
       <div 
