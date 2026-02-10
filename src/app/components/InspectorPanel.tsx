@@ -549,7 +549,7 @@ export function InspectorPanel({ node, onClose, theme }: InspectorPanelProps) {
                         return (
                           <div className="flex items-center gap-3">
                             <a
-                              href="https://linkedin.com/in/e-deborah-imafidon-34000b272/"
+                              href="https://www.linkedin.com/in/esosa-deborah-imafidon-34000b272/"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="hover:opacity-70 transition-opacity"
